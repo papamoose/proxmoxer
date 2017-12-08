@@ -90,6 +90,9 @@ class ProxmoxHttpSession(requests.Session):
                 timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None,
                 serializer=None):
 
+        # At this point 'verify'=None, so set it to what we want.
+        verify = self.verify
+
         #filter out streams
         files = files or {}
         data = data or {}
